@@ -14,7 +14,7 @@ Payload from left to right:
 2 byte battery voltage
 
 ````
-3700591c950c
+3700591cab0c
 ````
 
-ie. 37 pulses; 7,229ms between the last 2 pulses; battery 3.8 Volts
+ie. 37 pulses; 7,229ms between the last 2 pulses; battery 3.243 Volts
