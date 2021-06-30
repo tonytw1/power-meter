@@ -11,9 +11,10 @@ The main loop periodically wakes and updates the contents of the Bluetooth broad
 Payload from left to right:
 2 byte integer pulse count
 4 byte time between last pair of pulses in milliseconds
+2 byte battery voltage
 
 ````
-3700591c0000
+3700591c950c
 ````
 
-ie. 37 pulses; 7,229ms between the last 2 pulses.
+ie. 37 pulses; 7,229ms between the last 2 pulses; battery 3.8 Volts
