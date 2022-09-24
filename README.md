@@ -5,7 +5,7 @@ Publishes the current consumption in Watts onto a MQTT channel.
 
 ## Background
 
-UK domestic electricity meters normally have an LED on the outside of case which pulses as energy is consumed (800 pules per KWh in this case).
+UK domestic electricity meters normally have an external LED which pulses as energy is consumed (800 pulses per KWh in this case).
 This gives a non invasive way to read from the meter.
 
 ![Pulse indicator on meter](meter-led.jpg)
