@@ -8,6 +8,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 
 devices = ['f2:67:bf:fc:aa:98']
+mqtt_host = "localhost"
 mqtt_topic = 'abbottroad'
 
 def log_mqtt_connect(client, userdata, flags, rc):
@@ -23,7 +24,7 @@ mqtt_client.on_disconnect = log_mqtt_disconnect
 logger = logging.getLogger(__name__)
 mqtt_client.enable_logger(logger)
 
-mqtt_client.connect("localhost", 1883, 60)
+mqtt_client.connect(mqtt_host, 1883, 60)
 
 # Allows the mqtt library to loop and reconnect while allowing th main thread to block in it's own loop
 mqtt_client.loop_start()
