@@ -23,7 +23,7 @@ mqtt_client.on_disconnect = log_mqtt_disconnect
 logger = logging.getLogger(__name__)
 mqtt_client.enable_logger(logger)
 
-mqtt_client.connect("10.0.45.15", 32183, 60)
+mqtt_client.connect("localhost", 1883, 60)
 
 # Allows the mqtt library to loop and reconnect while allowing th main thread to block in it's own loop
 mqtt_client.loop_start()
@@ -40,7 +40,7 @@ class ScanDelegate(DefaultDelegate):
         if (dev.addr in devices):
                 short_addr = re.sub(':', '', dev.addr)
                 data_items = dev.getScanData()
-                manufacturer_specific_data_item = filter(lambda x: x[0] == ScanEntry.MANUFACTURER, data_items)
+                manufacturer_specific_data_item = list(filter(lambda x: x[0] == ScanEntry.MANUFACTURER, data_items))
                 if (len(manufacturer_specific_data_item) > 0):
                         value = manufacturer_specific_data_item[0][2]
                         count_hex = value[0:4]
@@ -49,7 +49,7 @@ class ScanDelegate(DefaultDelegate):
 
                         pulse_duration_hex = value[4:12]
                         pulse_duration_bytes = binascii.unhexlify(pulse_duration_hex)
-                        pulse_duration = struct.unpack('L', pulse_duration_bytes)[0]
+                        pulse_duration = struct.unpack('I', pulse_duration_bytes)[0]
 
                         battery_voltage_hex = value[12:16]
                         battery_voltage_bytes = binascii.unhexlify(battery_voltage_hex)
